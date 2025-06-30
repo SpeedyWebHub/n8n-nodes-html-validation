@@ -1,0 +1,19 @@
+{
+	"node": "n8n-nodes-base.ContentValidation",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Utility", "Data & Storage", "Miscellaneous"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://docs.n8n.io/integrations/builtin/credentials/content-validation/"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.content-validation/"
+			}
+		],
+		"generic": []
+	}
+}
