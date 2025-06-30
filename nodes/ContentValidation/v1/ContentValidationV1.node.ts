@@ -64,11 +64,13 @@ export class ContentValidationV1 implements INodeType {
 								itemData = {
 									ok: false,
 									error: 'HTML content cannot be an empty string or consist only of spaces!',
+									content: html
 								};
 							} else if (requireAtLeastOneTag && !/<[^>]+>/.test(html)) {
 								itemData = {
 									ok: false,
 									error: 'HTML content must contain at least one tag!',
+									content: html
 								};
 							} else {
 								// Validate HTML
@@ -77,6 +79,7 @@ export class ContentValidationV1 implements INodeType {
 									ok: validationReport.valid === true,
 									rejectEmptyString,
 									report: validationReport,
+									content: html
 								};
 							}
 							break;
@@ -94,18 +97,18 @@ export class ContentValidationV1 implements INodeType {
 							}
 							if (!allowEmpty && text.trim() === '') {
 								itemData = {
-									text,
 									ok: false,
 									error: 'Text content cannot be an empty string or consist only of spaces!',
+									content: text
 								};
 							} else {
 								const result = spokenLanguageDetector.detect(text);
 								const isOk = Array.isArray(result) && result[0] && Array.isArray(result[0]) ? result[0][0] === targetLanguage : false;
 								//itemData = { valid: true, text };
 								itemData = {
-									text,
 									ok: isOk,
-									result
+									result,
+									content: text
 								}
 							}
 							break;
