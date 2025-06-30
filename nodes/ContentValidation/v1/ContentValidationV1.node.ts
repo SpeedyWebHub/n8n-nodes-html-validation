@@ -12,9 +12,16 @@ import {
 
 import { versionDescription } from './actions/versionDescription';
 
+// TODO make sure there are no runtime dependencies (n8n community node guidelines)
+// TODO isn't .htmlvalidate.json read from filesystem, which would violate n8n's community node guidelines?
+// TODO fullfill/verify other n8n community node guidelines requirements
+
 // TODO move to actions (like in Mattermost node: https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Mattermost/v1/actions/user/index.ts)
 import { HtmlValidate } from "html-validate";
 const htmlvalidate = new HtmlValidate();
+
+import LanguageDetect from 'languagedetect';
+const spokenLanguageDetector = new LanguageDetect();
 
 export class ContentValidationV1 implements INodeType {
 
@@ -51,11 +58,16 @@ export class ContentValidationV1 implements INodeType {
 							break;
 						}
 						case 'Validate spoken language': {
-							const text = this.getNodeParameter('text', i) as string;
-							// Placeholder for spoken language validation logic
-							// For now, we just return the text as is
-							//TODO replace with actual spoken language validation logic
-							itemData = { valid: true, text };
+							const text = this.getNodeParameter('Probe Text', i) as string;
+							const targetLanguage = this.getNodeParameter('Target Language', i) as string;
+							const result = spokenLanguageDetector.detect(text);
+							const isOk = Array.isArray(result) && result[0] && Array.isArray(result[0]) ? result[0][0] === targetLanguage : false;
+							//itemData = { valid: true, text };
+							itemData = {
+								text,
+								ok: isOk,
+								result
+							}
 							break;
 						}
 						default: {

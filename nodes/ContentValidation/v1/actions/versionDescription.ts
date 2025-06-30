@@ -86,7 +86,7 @@ export const versionDescription: INodeTypeDescription = {
 		},
 		{
 			displayName: 'Target Language',
-			name: 'Target language',
+			name: 'Target Language',
 			type: 'string',
 			required: true,
 			displayOptions: {
