@@ -1,5 +1,5 @@
 import {
-	//IDataObject,
+	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
@@ -50,23 +50,63 @@ export class ContentValidationV1 implements INodeType {
 					switch (operation) {
 						case 'Validate HTML': {
 							const html = this.getNodeParameter('html', i) as string;
-							// Validate HTML
-							const validationReport = await htmlvalidate.validateString(html);
-							itemData = {
-								report: validationReport
-							};
+							if (html === undefined || html === null) {
+								throw new NodeOperationError(this.getNode(), 'HTML content is required for validation!', {
+									itemIndex: i,
+								});
+							}
+							const additionalFields = this.getNodeParameter('additionalFields', i, {}) as IDataObject;
+							//const rejectEmptyString = this.getNodeParameter('rejectEmptyString', i, false) as boolean;
+							//const requireAtLeastOneTag = this.getNodeParameter('requireAtLeastOneTag', i, false) as boolean;
+							const rejectEmptyString = additionalFields.rejectEmptyString as boolean ?? false;
+							const requireAtLeastOneTag = additionalFields.requireAtLeastOneTag as boolean ?? false;
+							if (rejectEmptyString && html.trim() === '') {
+								itemData = {
+									ok: false,
+									error: 'HTML content cannot be an empty string or consist only of spaces!',
+								};
+							} else if (requireAtLeastOneTag && !/<[^>]+>/.test(html)) {
+								itemData = {
+									ok: false,
+									error: 'HTML content must contain at least one tag!',
+								};
+							} else {
+								// Validate HTML
+								const validationReport = await htmlvalidate.validateString(html);
+								itemData = {
+									ok: validationReport.valid === true,
+									rejectEmptyString,
+									report: validationReport,
+								};
+							}
 							break;
 						}
 						case 'Validate spoken language': {
 							const text = this.getNodeParameter('Probe Text', i) as string;
 							const targetLanguage = this.getNodeParameter('Target Language', i) as string;
-							const result = spokenLanguageDetector.detect(text);
-							const isOk = Array.isArray(result) && result[0] && Array.isArray(result[0]) ? result[0][0] === targetLanguage : false;
-							//itemData = { valid: true, text };
-							itemData = {
-								text,
-								ok: isOk,
-								result
+							const additionalFields = this.getNodeParameter('additionalFields', i, {}) as IDataObject;
+							//const allowEmpty = this.getNodeParameter('allowEmpty', i, false) as boolean;
+							const allowEmpty = additionalFields.allowEmpty as boolean ?? true;
+							if (text === undefined || text === null) {
+								throw new NodeOperationError(this.getNode(), 'Text content is required for spoken language validation!', {
+									itemIndex: i,
+								});
+							}
+							if (!allowEmpty && text.trim() === '') {
+								itemData = {
+									text,
+									ok: false,
+									error: 'Text content cannot be an empty string or consist only of spaces!',
+								};
+							} else {
+								const result = spokenLanguageDetector.detect(text);
+								const isOk = Array.isArray(result) && result[0] && Array.isArray(result[0]) ? result[0][0] === targetLanguage : false;
+								//itemData = { valid: true, text };
+								itemData = {
+									text,
+									ok: isOk,
+									result
+								}
 							}
 							break;
 						}

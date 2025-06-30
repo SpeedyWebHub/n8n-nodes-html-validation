@@ -37,7 +37,7 @@ export const versionDescription: INodeTypeDescription = {
 					action: 'Obtain result of a HTML validation',
 				},
 				{
-					name: 'Validate Spoken Language',
+					name: 'Validate spoken language',
 					value: 'Validate spoken language',
 					description: 'Perform a spoken language validation',
 					action: 'Obtain result of a spoken language validation',
@@ -115,16 +115,16 @@ export const versionDescription: INodeTypeDescription = {
 						'validator',
 					],
 					operation: [
-						'validate HTML',
+						'Validate HTML',
 					],
 				},
 			},
 			options: [
 				{
-					displayName: 'Allow Empty',
-					name: 'allowEmpty',
+					displayName: 'Reject Empty String',
+					name: 'rejectEmptyString',
 					type: 'boolean',
-					default: true,
+					default: false,
 				},
 				{
 					displayName: 'Require At Least One Tag',
@@ -146,7 +146,7 @@ export const versionDescription: INodeTypeDescription = {
 						'validator',
 					],
 					operation: [
-						'validate spoken language',
+						'Validate spoken language',
 					],
 				},
 			},
