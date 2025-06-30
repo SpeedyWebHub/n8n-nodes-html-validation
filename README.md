@@ -26,7 +26,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 The node doesn't require credentials
 
 ## Compatibility
-TODO
+Tested with n8n version 1.99.1
 
 ## Usage
 TODO
