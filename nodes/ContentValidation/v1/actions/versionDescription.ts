@@ -37,7 +37,7 @@ export const versionDescription: INodeTypeDescription = {
 					action: 'Obtain result of a HTML validation',
 				},
 				{
-					name: 'Validate spoken language',
+					name: 'Validate Spoken Language',
 					value: 'Validate spoken language',
 					description: 'Perform a spoken language validation',
 					action: 'Obtain result of a spoken language validation',
