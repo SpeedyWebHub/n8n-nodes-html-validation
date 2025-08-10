@@ -18,6 +18,7 @@ import { versionDescription } from './actions/versionDescription';
 
 // TODO move to actions (like in Mattermost node: https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Mattermost/v1/actions/user/index.ts)
 import { HtmlValidate } from "html-validate";
+
 const htmlvalidate = new HtmlValidate();
 
 export class HtmlValidationV1 implements INodeType {
