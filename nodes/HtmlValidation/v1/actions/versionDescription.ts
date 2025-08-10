@@ -35,12 +35,6 @@ export const versionDescription: INodeTypeDescription = {
 					value: 'Validate HTML',
 					description: 'Perform a HTML validation',
 					action: 'Obtain result of a HTML validation',
-				},
-				{
-					name: 'Validate Spoken Language',
-					value: 'Validate spoken language',
-					description: 'Perform a spoken language validation',
-					action: 'Obtain result of a spoken language validation',
 				}
 			],
 			default: 'Validate HTML',
@@ -64,44 +58,6 @@ export const versionDescription: INodeTypeDescription = {
 			default:'',
 			placeholder: '<p>Hello world!</p>',
 			description:'HTML content for validation',
-		},
-		{
-			displayName: 'Probe Text',
-			name: 'Probe Text',
-			type: 'string',
-			required: true,
-			displayOptions: {
-				show: {
-					operation: [
-						'Validate spoken language',
-					],
-					resource: [
-						'validator',
-					],
-				},
-			},
-			default:'',
-			placeholder: 'Lorem ipsum dolor sit amet',
-			description:'Spoken language text for validation',
-		},
-		{
-			displayName: 'Target Language',
-			name: 'Target Language',
-			type: 'string',
-			required: true,
-			displayOptions: {
-				show: {
-					operation: [
-						'Validate spoken language',
-					],
-					resource: [
-						'validator',
-					],
-				},
-			},
-			default:'',
-			placeholder: 'Latin',
-			description:'Validator target spoken language',
 		},
 		{
 			displayName: 'Additional Fields',
@@ -134,40 +90,15 @@ export const versionDescription: INodeTypeDescription = {
 				},
 			],
 		},
-		{
-			displayName: 'Additional Fields',
-			name: 'additionalFields',
-			type: 'collection',
-			placeholder: 'Add Field',
-			default: {},
-			displayOptions: {
-				show: {
-					resource: [
-						'validator',
-					],
-					operation: [
-						'Validate spoken language',
-					],
-				},
-			},
-			options: [
-				{
-					displayName: 'Allow Empty',
-					name: 'allowEmpty',
-					type: 'boolean',
-					default: true,
-				},
-			],
-		},
 	],
-	displayName: 'Content Validation',
-	name: 'content-validation',
-	icon: 'file:ContentValidation.svg',
+	displayName: 'HTML Validation',
+	name: 'html-validation',
+	icon: 'file:HtmlValidation.svg',
 	group: ['transform'],
 	version: 1,
-	description: 'Validate user-provided content',
+	description: 'Validate user-provided HTML content',
 	defaults: {
-		name: 'Content Validation',
+		name: 'HTML Validation',
 	},
 	inputs: [NodeConnectionType.Main],
 	outputs: [NodeConnectionType.Main],

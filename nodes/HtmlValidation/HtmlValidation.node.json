@@ -1,17 +1,17 @@
 {
-	"node": "n8n-nodes-base.ContentValidation",
+	"node": "n8n-nodes-base.HtmlValidation",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Utility", "Data & Storage", "Miscellaneous"],
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/credentials/content-validation/"
+				"url": "https://docs.n8n.io/integrations/builtin/credentials/html-validation/"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.content-validation/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.html-validation/"
 			}
 		],
 		"generic": []

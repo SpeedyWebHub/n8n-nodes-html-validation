@@ -6,8 +6,11 @@
     "n8n-community-node-package",
     "content-validation",
     "validation",
-    "content",
-    "html"
+    "html",
+    "html-validation",
+    "html-validate",
+    "htmlvalidate",
+    "content"
   ],
   "license": "MIT",
   "homepage": "",
@@ -38,7 +41,7 @@
     "n8nNodesApiVersion": 1,
     "credentials": [],
     "nodes": [
-      "dist/nodes/ContentValidation/ContentValidation.node.js"
+      "dist/nodes/HtmlValidation/HtmlValidation.node.js"
     ]
   },
   "dependencies": {
