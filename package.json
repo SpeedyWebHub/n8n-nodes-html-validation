@@ -4,11 +4,11 @@
   "description": "HTML validation node for n8n",
   "keywords": [
     "n8n-community-node-package",
+    "html-validation",
+    "html-validate",
     "content-validation",
     "validation",
     "html",
-    "html-validation",
-    "html-validate",
     "htmlvalidate",
     "content"
   ],

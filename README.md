@@ -10,7 +10,7 @@ This is an n8n community node. It lets you use HTML validation in your n8n workf
 [Compatibility](#compatibility)  
 [Usage](#usage)  <!-- delete if not using this section -->  
 [Resources](#resources)  
-[Version history](#version-history)  <!-- delete if not using this section -->  
+
 
 ## Installation
 
@@ -25,22 +25,41 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 The node doesn't require credentials
 
 ## Compatibility
-TODO
 Tested with n8n version 1.99.1
 
 ## Usage
-TODO
-_This is an optional section. Use it to help users with any difficult or confusing aspects of the node._
+- Input the HTML content for verification into the field labeled as `Html` - **required**
+- Specify if empty string needs to be rejected using the field labeled as `Reject empty string` in the `Additional Fields` collection - optional, default: `false`
+- Specify if at least one tag needs to be present in order to the validator to accept the input using the field labeled as `Require At Least One Tag` in the `Additional Fields` collection - optional, default: `false`
+- Specify custom rules using the `Custom Rules` field in the 'Additional Fields' collection - optional, default:
+```json
+{
+  "extends": [
+    "html-validate:recommended"
+  ],
 
-_By the time users are looking for community nodes, they probably already know n8n basics. But if you expect new users, you can link to the [Try it out](https://docs.n8n.io/try-it-out/) documentation to help them get started._
+  "rules": {
+    "close-order": "error",
+    "void": ["warn", {"style": "omit"}]
+  }
+}
+```
+For example to allow self-closing tags, you can set `Custom Rules` to:
+```json
+{
+  "extends": [
+    "html-validate:recommended"
+  ],
 
+  "rules": {
+    "close-order": "error",
+    "no-self-closing": "off",
+    "void-style": "off"
+  }
+}
+```
+Note: The `Custom Rules` field needs to be **a valid JSON** if set.
 ## Resources
-TODO
-* [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-* _Link to app/service documentation._
-
-## Version history
-TODO
-_This is another optional section. If your node has multiple versions, include a short description of available versions and what changed, as well as any compatibility impact._
+* [html-validate rules reference](https://html-validate.org/rules/)
 
 
