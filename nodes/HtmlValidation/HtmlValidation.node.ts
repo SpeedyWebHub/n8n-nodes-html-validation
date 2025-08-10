@@ -3,7 +3,7 @@ import { VersionedNodeType } from 'n8n-workflow';
 
 import { HtmlValidationV1 } from './v1/HtmlValidationV1.node';
 
-export class ContentValidation extends VersionedNodeType {
+export class HtmlValidation extends VersionedNodeType {
 	constructor() {
 		const baseDescription: INodeTypeBaseDescription = {
 			displayName: 'HTML Validation',
