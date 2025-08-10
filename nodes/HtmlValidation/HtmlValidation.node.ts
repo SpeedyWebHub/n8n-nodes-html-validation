@@ -10,7 +10,7 @@ export class HtmlValidation extends VersionedNodeType {
 			name: 'htmlValidation',
 			icon: 'file:HtmlValidation.svg',
 			group: ['transform'],
-			subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
+			subtitle: '={{$parameter["operation"]}}',
 			description: 'Validates user-provided HTML content',
 			defaultVersion: 1,
 		};

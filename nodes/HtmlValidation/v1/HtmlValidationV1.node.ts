@@ -37,7 +37,7 @@ export class HtmlValidationV1 implements INodeType {
 		// Handle data coming from previous nodes
 		const items = this.getInputData();
 		const returnData = [];
-		const resource = this.getNodeParameter('resource', 0) as string;
+		const resource = 'validator';
 		const operation = this.getNodeParameter('operation', 0) as string;
 
 		// Process each item

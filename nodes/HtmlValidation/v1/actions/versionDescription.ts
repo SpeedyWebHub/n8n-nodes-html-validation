@@ -4,31 +4,9 @@ import { NodeConnectionType, type INodeTypeDescription } from 'n8n-workflow';
 export const versionDescription: INodeTypeDescription = {
   properties: [
     {
-      displayName: 'Resource',
-      name: 'resource',
-      type: 'options',
-      options: [
-        {
-          name: 'Validator',
-          value: 'validator',
-        },
-      ],
-      default: 'validator',
-      noDataExpression: true,
-      required: true,
-      description: 'Use validator to perform validation of data',
-    },
-    {
       displayName: 'Operation',
       name: 'operation',
       type: 'options',
-      displayOptions: {
-        show: {
-          resource: [
-            'validator',
-          ],
-        },
-      },
       options: [
         {
           name: 'Validate HTML',
@@ -50,9 +28,6 @@ export const versionDescription: INodeTypeDescription = {
           operation: [
             'Validate HTML',
           ],
-          resource: [
-            'validator',
-          ],
         },
       },
       default:'',
@@ -67,9 +42,6 @@ export const versionDescription: INodeTypeDescription = {
       default: {},
       displayOptions: {
         show: {
-          resource: [
-            'validator',
-          ],
           operation: [
             'Validate HTML',
           ],
