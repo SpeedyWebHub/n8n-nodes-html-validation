@@ -1,6 +1,6 @@
-# n8n-nodes-content-validation
+# n8n-nodes-html-validation
 
-This is an n8n community node. It lets you use HTML and spoken language validation in your n8n workflows.
+This is an n8n community node. It lets you use HTML validation in your n8n workflows.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
@@ -19,13 +19,13 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 ## Operations
 
 - Validate HTML
-- Validate spoken language
 
 ## Credentials
 
 The node doesn't require credentials
 
 ## Compatibility
+TODO
 Tested with n8n version 1.99.1
 
 ## Usage
