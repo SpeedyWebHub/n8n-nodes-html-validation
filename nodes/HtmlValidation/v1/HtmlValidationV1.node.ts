@@ -58,6 +58,7 @@ export class HtmlValidationV1 implements INodeType {
 							//const requireAtLeastOneTag = this.getNodeParameter('requireAtLeastOneTag', i, false) as boolean;
 							const rejectEmptyString = additionalFields.rejectEmptyString as boolean ?? false;
 							const requireAtLeastOneTag = additionalFields.requireAtLeastOneTag as boolean ?? false;
+							const customRules = additionalFields.customRules as string | undefined;
 							if (rejectEmptyString && html.trim() === '') {
 								itemData = {
 									ok: false,
@@ -72,7 +73,7 @@ export class HtmlValidationV1 implements INodeType {
 								};
 							} else {
 								// Validate HTML
-								const validationReport = await htmlvalidate.validateString(html);
+								const validationReport = customRules ? await new HtmlValidate(JSON.parse(customRules)).validateString(html) : await htmlvalidate.validateString(html);
 								itemData = {
 									ok: validationReport.valid === true,
 									rejectEmptyString,
