@@ -1,16 +1,13 @@
 {
-  "name": "n8n-nodes-content-validation",
-  "version": "0.1.5",
-  "description": "HTML and spoken language validation node for n8n",
+  "name": "n8n-nodes-html-validation",
+  "version": "0.1.0",
+  "description": "HTML validation node for n8n",
   "keywords": [
     "n8n-community-node-package",
     "content-validation",
     "validation",
     "content",
-    "html",
-    "spoken",
-    "language",
-    "text"
+    "html"
   ],
   "license": "MIT",
   "homepage": "",
@@ -20,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adameus03/n8n-nodes-content-validation.git"
+    "url": "https://github.com/SpeedyWebHub/n8n-nodes-html-validation"
   },
   "engines": {
     "node": ">=20.15"
