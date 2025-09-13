@@ -69,13 +69,13 @@ export const versionDescription: INodeTypeDescription = {
           },
           default:
 `{
-  "extends": [
-    "html-validate:recommended"
-  ],
-  "rules": {
-    "close-order": "error",
-    "void": ["warn", {"style": "omit"}]
-  }
+	"extends": [
+		"html-validate:recommended"
+	],
+	"rules": {
+		"close-order": "error",
+		"void-style": "off"
+	}
 }`,
         }
       ],
