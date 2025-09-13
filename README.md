@@ -34,14 +34,13 @@ Tested with n8n version 1.99.1
 - Specify custom rules using the `Custom Rules` field in the 'Additional Fields' collection - optional, default:
 ```json
 {
-  "extends": [
-    "html-validate:recommended"
-  ],
-
-  "rules": {
-    "close-order": "error",
-    "void": ["warn", {"style": "omit"}]
-  }
+	"extends": [
+		"html-validate:recommended"
+	],
+	"rules": {
+		"close-order": "error",
+		"void-style": "off"
+	}
 }
 ```
 For example to allow self-closing tags, you can set `Custom Rules` to:
